@@ -266,7 +266,7 @@ function showConfirmationScreen(screen) {
 }
 
 ConfirmationButton_Yes.click(function () {
-    editProductQty(products.coke - takeCoke, products.sprite - takeSprite);
+    editProductQty(curCoke, curSprite);
     saveTransaction();
     ConfirmationButton_Yes.text("Yes");
     showMainScreen(ConfirmationScreen);
@@ -326,12 +326,14 @@ function charConfirm() {
 }
 
 function editProductQty(cokeQty, spriteQty) {
-    products.coke = cokeQty;
-    products.sprite = spriteQty;
+    // products.coke = cokeQty;
+    // products.sprite = spriteQty;
 
-    curCoke = products.coke;
-    curSprite = products.sprite;
+    prevCoke = cokeQty;
+    prevSprite = spriteQty;
 
+    // curCoke = products.coke;
+    // curSprite = products.sprite;
 }
 
 function saveTransaction() {
@@ -465,10 +467,10 @@ const SupplierProduct_SpriteCancel = $('#btnSupplierProduct_SpriteCancel');
 
 const SupplierTransaction_Table = $('#tblSupplierTransaction');
 
-var products = {
-    coke: curCoke,
-    sprite: curSprite
-};
+// var products = {
+//     coke: curCoke,
+//     sprite: curSprite
+// };
 
 function showSupplierScreen(screen) {
     if (screen) {
@@ -477,8 +479,8 @@ function showSupplierScreen(screen) {
 
     takeCoke = 0;
     takeSprite = 0;
-    SupplierProduct_CokeQty.text(products.coke);
-    SupplierProduct_SpriteQty.text(products.sprite);
+    SupplierProduct_CokeQty.text(prevCoke);
+    SupplierProduct_SpriteQty.text(prevSprite);
 
     SupplierProduct_CokeRemove.hide();
     SupplierProduct_CokeAdd.hide();
