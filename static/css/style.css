@@ -1,0 +1,334 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(iconfont/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(iconfont/MaterialIcons-Regular.woff2) format("woff2"), url(iconfont/MaterialIcons-Regular.woff) format("woff"), url(iconfont/MaterialIcons-Regular.ttf) format("truetype"); }
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }
+
+body {
+  background-color: black;
+  color: white;
+  position: relative; }
+
+.content {
+  position: absolute; }
+
+.cards {
+  background-color: #FFD740;
+  color: black;
+  border-radius: 5px;
+  margin-top: 1.5em;
+  padding: 1em;
+  width: auto;
+  height: auto; }
+
+.secondary-button {
+  border: 2px solid white;
+  color: white; }
+
+.debug-text {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.character {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 395px;
+  top: 325px;
+  z-index: 99; }
+
+svg, .jellyfish {
+  position: relative;
+  height: 550px;
+  margin: 0;
+  margin-top: -60px;
+  margin-left: 0px;
+  will-change: transform; }
+
+.character-bubble {
+  display: inline-block;
+  margin: 50px auto;
+  border-radius: 15px;
+  background: #FFD740;
+  color: #fff;
+  padding: 20px; }
+
+.character-bubble--stick {
+  /* bubble stick with chars */
+  position: absolute;
+  top: 10px;
+  left: 290px; }
+
+.sb14:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #FFD740;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #FFD740;
+  left: -16px;
+  top: 50px; }
+
+.character-bubble--text {
+  display: inline-block;
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  text-align: left;
+  animation-delay: 1s;
+  animation: typing 1s steps(30, end), blink-caret 0.75s step-end infinite; }
+
+@keyframes typing {
+  /* The typing effect */
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+@keyframes blink-caret {
+  /* The typewriter cursor effect */
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: white; } }
+.main-screen-tapcard img, h4 {
+  display: inline-block; }
+
+.main-screen-peek {
+  width: 550px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.main-screen-warning {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.peek-peek-button {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  color: black;
+  font-size: 50px; }
+
+.peek-tutorial-button {
+  float: right;
+  color: white; }
+
+.tapcard-text {
+  position: relative;
+  animation: tapcard-text--anim 1s infinite;
+  -webkit-animation: tapcard-text--anim 1s infinite; }
+
+@keyframes tapcard-text--anim {
+  0% {
+    top: 10px; }
+  20% {
+    top: 0px; }
+  40% {
+    top: 10px; }
+  60% {
+    top: 0px; }
+  80% {
+    top: 10px; }
+  100% {
+    top: 10px; } }
+@-webkit-keyframes tapcard-text--anim {
+  0% {
+    top: 10px; }
+  20% {
+    top: 0px; }
+  40% {
+    top: 10px; }
+  60% {
+    top: 0px; }
+  80% {
+    top: 10px; }
+  100% {
+    top: 10px; } }
+.arrow {
+  position: relative;
+  width: 100px;
+  height: auto; }
+
+.arrow-up--animation {
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  top: 0;
+  left: 0;
+  animation: arrow-up--anim 10s infinite;
+  -webkit-animation: arrow-up--anim 10s infinite; }
+
+@keyframes arrow-up--anim {
+  0% {
+    top: 20px;
+    left: 20px; }
+  25% {
+    top: 0px;
+    left: 0px; }
+  50% {
+    top: 20px;
+    left: 20px; }
+  75% {
+    top: 0px;
+    left: 0px; }
+  100% {
+    top: 20px;
+    left: 20px; } }
+@-webkit-keyframes arrow-up--anim {
+  0% {
+    top: 20px;
+    left: 20px; }
+  25% {
+    top: 0px;
+    left: 0px; }
+  50% {
+    top: 20px;
+    left: 20px; }
+  75% {
+    top: 0px;
+    left: 0px; }
+  100% {
+    top: 20px;
+    left: 20px; } }
+.arrow-right {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  animation: arrow-right--anim 10s infinite;
+  -webkit-animation: arrow-right--anim 10s infinite; }
+
+@keyframes arrow-right--anim {
+  0% {
+    left: 0px; }
+  25% {
+    left: 20px; }
+  50% {
+    left: 0px; }
+  75% {
+    left: 20px; }
+  100% {
+    left: 0px; } }
+@-webkit-keyframes arrow-right--anim {
+  0% {
+    left: 0px; }
+  25% {
+    left: 20px; }
+  50% {
+    left: 0px; }
+  75% {
+    left: 20px; }
+  100% {
+    left: 0px; } }
+.tutorial-screen-tutorial1 {
+  position: absolute;
+  top: -30px;
+  left: 0px; }
+
+.tutorial-screen-tutorial2 {
+  top: -30px;
+  right: 0px; }
+
+.tutorial-screen-tutorial3 {
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.tutorial-screen-tutorial4 {
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.confirmation-screen-button {
+  width: 550px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.confirmation-screen-button button {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 40px;
+  height: 80px;
+  width: 45%; }
+
+.correction-screen-table {
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.correction-table {
+  background-color: black;
+  width: 95%; }
+
+.correction-table td {
+  font-size: 20px; }
+
+.table-header th, td {
+  font-size: 20px;
+  color: white; }
+
+.border-bottom td, th {
+  border-bottom: 3px solid #FFD740; }
+
+.correction-button {
+  right: 0;
+  margin-top: 10px;
+  width: 100%; }
+
+.correction-button button {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 30px;
+  height: 70px;
+  width: 45%; }
+
+.cards-status {
+  font-size: 2em;
+  letter-spacing: 1px; }
+
+.supplier-table {
+  width: 100%;
+  background-color: black; }
+
+.supplier-tools-button {
+  background-color: black; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,15 @@
+$(document).ready(function(){
+    //connect to the socket server.
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+
+    //receive details from server
+    socket.on('temperature_read', function(msg) {
+       console.log("humidity: " + msg.humidity + "temperature: " + msg.temperature);
+
+        temperatureString = "<p>humidity: " + msg.humidity +
+           "</p><p>temperature: " + msg.temperature + "</p>"
+	temperatureString += "<p>Door is " + msg.door_status + "</p>"
+        $('#log').html(temperatureString);
+    });
+
+});
