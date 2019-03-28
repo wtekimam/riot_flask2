@@ -120,8 +120,8 @@ $(document).ready(function () {
         }
 
         if (msg.role === "vendor") {
+            debuglog("Vendor");
             showSupplierScreen(MainScreen);
-            debuglog("Vendor")
         }
 
         // $('#go-back').click(showMainScreen());
@@ -511,11 +511,11 @@ SupplierScreenButton_Home.click(function () {
 });
 SupplierProduct_CokeEdit.click(function () {
     if (SupplierProduct_CokeEdit.text() === "Save") {
-        editProductQty(products.coke - takeCoke, products.sprite);
+        editProductQty(prevCoke - takeCoke, prevSprite);
 
         SupplierProduct_CokeEdit.text("Edit");
         takeCoke = 0;
-        SupplierProduct_CokeQty.text(products.coke);
+        SupplierProduct_CokeQty.text(prevCoke);
 
         SupplierProduct_CokeRemove.hide();
         SupplierProduct_CokeAdd.hide();
@@ -532,7 +532,7 @@ SupplierProduct_CokeEdit.click(function () {
 SupplierProduct_CokeCancel.click(function () {
     SupplierProduct_CokeEdit.text("Edit");
     takeCoke = 0;
-    SupplierProduct_CokeQty.text(products.coke);
+    SupplierProduct_CokeQty.text(prevCoke);
 
     SupplierProduct_CokeRemove.hide();
     SupplierProduct_CokeAdd.hide();
@@ -541,21 +541,21 @@ SupplierProduct_CokeCancel.click(function () {
 
 SupplierProduct_CokeRemove.click(function () {
     takeCoke += 1;
-    SupplierProduct_CokeQty.text(products.coke - takeCoke);
+    SupplierProduct_CokeQty.text(prevCoke - takeCoke);
 });
 
 SupplierProduct_CokeAdd.click(function () {
     takeCoke -= 1;
-    SupplierProduct_CokeQty.text(products.coke - takeCoke);
+    SupplierProduct_CokeQty.text(prevCoke - takeCoke);
 });
 
 SupplierProduct_SpriteEdit.click(function () {
     if (SupplierProduct_SpriteEdit.text() === "Save") {
-        editProductQty(products.coke, products.sprite - takeSprite);
+        editProductQty(prevCoke, prevSprite - takeSprite);
 
         SupplierProduct_SpriteEdit.text("Edit");
         takeSprite = 0;
-        SupplierProduct_SpriteQty.text(products.sprite);
+        SupplierProduct_SpriteQty.text(prevSprite);
 
         SupplierProduct_SpriteRemove.hide();
         SupplierProduct_SpriteAdd.hide();
@@ -567,17 +567,12 @@ SupplierProduct_SpriteEdit.click(function () {
         SupplierProduct_SpriteAdd.show();
         SupplierProduct_SpriteCancel.show();
     }
-
-
-    SupplierProduct_SpriteRemove.show();
-    SupplierProduct_SpriteAdd.show();
-    SupplierProduct_SpriteCancel.show();
 });
 
 SupplierProduct_SpriteCancel.click(function () {
     SupplierProduct_SpriteEdit.text("Edit");
     takeSprite = 0;
-    SupplierProduct_SpriteQty.text(products.sprite);
+    SupplierProduct_SpriteQty.text(prevSprite);
 
     SupplierProduct_SpriteRemove.hide();
     SupplierProduct_SpriteAdd.hide();
@@ -586,12 +581,12 @@ SupplierProduct_SpriteCancel.click(function () {
 
 SupplierProduct_SpriteRemove.click(function () {
     takeSprite += 1;
-    SupplierProduct_SpriteQty.text(products.sprite - takeSprite);
+    SupplierProduct_SpriteQty.text(prevSprite - takeSprite);
 });
 
 SupplierProduct_SpriteAdd.click(function () {
     takeSprite -= 1;
-    SupplierProduct_SpriteQty.text(products.sprite - takeSprite);
+    SupplierProduct_SpriteQty.text(prevSprite - takeSprite);
 });
 
 Debug_Text.click(function () {
