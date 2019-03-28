@@ -62,6 +62,7 @@ $(document).ready(function () {
 
     //receive details from server
     socket.on('temperature_read', function (msg) {
+        
         //console.log("humidity: " + msg.humidity + " temperature: " + msg.temperature
         //	+ " door: " + msg.door_status + " finish: " + msg.finish + " tap " + msg.card_tap);
 
@@ -95,10 +96,9 @@ $(document).ready(function () {
             curSprite = 0;
         }
 
-
         if (msg.card_tap === true && msg.role !== "vendor") {
-            console.log("card tapped");
-            showConfirmationScreen(MainScreen)
+            debuglog("card tapped");
+            showConfirmationScreen(MainScreen);
         }
 
         if (msg.finish === true) {
@@ -111,8 +111,11 @@ $(document).ready(function () {
                 takeSprite = prevSprite - curSprite;
             }
             debuglog(takeSprite + " " + takeCoke);
-            charConfirm();
-            setTimeout(confirm, 5000);
+
+            confirm();
+            // charConfirm();
+            // setTimeout(confirm, 5000);
+
             console.log("finish");
         }
 
@@ -292,8 +295,6 @@ function confirm() {
 
     CharacterBubbleStick_Text.text(itemTaken);
 
-    editProductQty(curCoke, curSprite);
-
     setTimeout(function () {
         ConfirmationScreen.fadeIn(800);
         var timer = 5, seconds;
@@ -304,7 +305,7 @@ function confirm() {
             ConfirmationButton_Yes.text("Yes (" + seconds + ")");
 
             if (--timer < 0) {
-                editProductQty(products.coke - takeCoke, products.sprite - takeSprite);
+                editProductQty(curCoke, curSprite);
                 saveTransaction();
                 ConfirmationButton_Yes.text("Yes");
                 showMainScreen(ConfirmationScreen);
@@ -431,7 +432,7 @@ CorrectionProduct_SpriteAdd.click(function () {
 });
 
 CorrectionScreenButton_Confirm.click(function () {
-    editProductQty(products.coke - takeCoke, products.sprite - takeSprite);
+    editProductQty(prevCoke - takeCoke, prevSprite - takeSprite);
     saveTransaction();
     showMainScreen(CorrectionScreen);
 });
