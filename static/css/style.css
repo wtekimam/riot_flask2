@@ -76,7 +76,7 @@ svg, .jellyfish {
   height: 550px;
   margin: 0;
   margin-top: -60px;
-  margin-left: 0px;
+  margin-left: -100px;
   will-change: transform;
 }
 

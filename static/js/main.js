@@ -21,7 +21,7 @@ var transactions = [
 var countdownConfirmationScreen; //to stop countdown on confirmation screen
 
 var characterPositionTop = '325';
-var characterPositionLeft = '1095';
+var characterPositionLeft = '395';
 
 var name = "John";
 var humidity = "80";
